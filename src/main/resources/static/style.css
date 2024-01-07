@@ -1,0 +1,295 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+::selection {
+    background: #3cb878;
+    color: #ffffff;
+    text-shadow: none;
+}
+
+body {
+    background: linear-gradient(#3cb878, #767edf);
+    color: #3c3c3b;
+    padding-bottom: 30px;
+    min-height: 100vh;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+}
+
+header .img-container {
+    cursor: pointer;
+    position: relative;
+    width: 260px;
+    height: 220px;
+    margin: 30px;
+}
+
+header .border-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    border-radius: 30px;
+}
+
+header img {
+    position: absolute;
+    width: 240px;
+    height: auto;
+    background: white;
+    border-radius: 20px;
+    z-index: 100;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header .img-container:hover .border-gradient  {
+    background: linear-gradient( #767edf, #3cb878);
+}
+
+main {
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    padding: 20px 30px;
+    padding-bottom: 10px;
+    border-radius: 30px 30px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: 700;
+    border-bottom: #fff 2px solid;
+    color: #767edf;
+}
+
+nav a:hover {
+    color: #3cb878;
+    border-bottom: #3cb878 2px solid;
+}
+
+h1 {
+    color: #3cb878;
+    font-size: 2rem;
+    font-weight: 800;
+    padding: 20px;
+}
+
+table {
+    width: 85%;
+    margin-bottom: 2rem;
+}
+
+form {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+}
+
+input, button {
+    box-sizing: border-box;
+    height: 100%;
+    font-size: 1rem;
+    border: 2px solid #3cb878;
+    background: white;
+    color: #3cb878;
+    padding: 8px 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button {
+    background: linear-gradient(#3cb878, #767edf);
+    color: #3c3c3b;
+}
+
+#foxes {
+    border-spacing: 0px;
+}
+
+#add, #filter {
+    width: 85%;
+    margin-bottom: 2rem;
+}
+
+#filter {
+    width: 62%;
+}
+
+#filter {
+    justify-content: space-around;
+}
+
+thead, tfoot {
+    font-size: 1.2rem;
+}
+
+table, th, td {
+    border: 2px solid #767edf;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+}
+
+#foxes tr:hover td {
+    cursor: pointer;
+    background-color: #9fa5e8;
+    color: #fff;
+    transition: all 0.25s;
+}
+
+footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    max-width: 900px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 0 0 30px 30px;
+    padding-bottom: 20px;
+}
+
+footer a {
+    color: #3cb878;
+    text-decoration: none;
+}
+
+footer a:hover {
+    color: #767edf;
+}
+
+/*@media (max-width: 925px) {
+    body {
+        background: linear-gradient(#3cb878, #767edf);
+        color: #3c3c3b;
+        padding-bottom: 60px;
+    }
+
+    header img {
+        width: 120px;
+        margin: 15px;
+    }
+
+    main {
+        width: auto;
+        margin: 0 10px;
+    }
+
+    nav {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+
+    nav a {
+        margin: 5px 0;
+        display: block;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+
+    table {
+        width: 90vw;
+        margin-bottom: 1rem;
+    }
+
+    #add, #filter {
+        width: 90vw;
+    }
+
+    footer {
+        margin: 0 10px;
+        width: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    #add {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #name, #color, #age{
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    #add button{
+        width: 25%;
+    }
+
+
+}
+
+@media (max-width: 510px){
+    table, thead, tfoot, table input{
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        height: auto;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 0;
+    }
+
+    header img {
+        width: 100px;
+        margin: 10px 0;
+    }
+
+    nav {
+        margin-bottom: 15px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+    }
+
+    table {
+        width: 90vw;
+        margin-bottom: 0.5rem;
+    }
+
+    #add, #filter {
+        width: 90vw;
+        margin-bottom: 1rem;
+    }
+}*/
+
+
+
+

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Fox Farm</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+</head>
+<body>
+
+<header></header>
+
+<main>
+    <nav>
+        <a href="/">Home</a>
+        <a href="/red-jpql">Find Red Foxes using JPQL</a>
+        <a href="/red-native">Find Red Foxes using Native SQL</a>
+    </nav>
+
+    <h1>Fox Farm</h1>
+
+
+    <form id="filter" action="/filter" method="get">
+        <div>
+            <label for="search">Search Foxes by Name:</label>
+            <input type="text" id="search" name="search">
+        </div>
+        <button type="submit">Search</button>
+    </form>
+
+    <table id="foxes">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Color</th>
+            <th>Age in months</th>
+            <th>Increase age</th>
+            <th>Delete</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="fox : ${foxes}" th:object="${fox}" >
+        <td th:text="*{name}"></td>
+         <td th:text="*{color}"></td>
+         <td th:text="*{age}"></td>
+         <td>
+             <form method="get" th:action="@{/increase/{id} (id = *{id})}">
+                 <button type="submit">+1</button>
+             </form>
+         </td>
+         <td>
+             <form method="get" th:action="@{/delete/{id} (id = *{id})}">
+                 <button type="submit">Remove</button>
+             </form>
+         </td>
+     </tr>
+     </tbody>
+ </table>
+
+ <form id="add" method="post" th:action="@{/}">
+     <div>
+         <label for="name">Name: </label>
+         <input type="text" id="name" name="name"/>
+     </div>
+
+     <div>
+         <label for="color">Color: </label>
+         <input type="text" id="color" name="color"/>
+     </div>
+
+     <div>
+         <label for="age">Age: </label>
+         <input type="number" id="age" name="age" min="0" max="40" step="1"/>
+     </div>
+
+     <button type="submit">Add</button>
+ </form>
+</main>
+<footer>
+ <p>©2023 <a href="#">Gloo Neltharion</a></p>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
